@@ -27,6 +27,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install Lambda dependencies into function folder
+        run: |
+          pip install -r lambda/provision/requirements.txt -t lambda/provision/
+
       - name: Install CDK CLI
         run: npm install -g aws-cdk
 

@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+.venv/
+*.log
+*.zip
+lambda/provision/tests/
+lambda/provision/*.egg-info
