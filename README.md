@@ -2,7 +2,15 @@
 
 ## Setup
 
-Deploy github-oidc-role.yaml to allow deploy via github actions. This can be done via the browser or from a cloud shell using the command `aws cloudformation deploy ...`. Parametrize with "oganization/repo".
+Configuring AWS for github deployments:
+
+1. Deploy github-oidc-role.yaml to allow deploy via github actions. This can be done via the browser or from a cloud shell using the command `aws cloudformation deploy ...`. Parametrize with "oganization/repo".
+2. `aws iam create-open-id-connect-provider \
+  --url https://token.actions.githubusercontent.com \
+  --client-id-list sts.amazonaws.com \
+  --thumbprint-list 6938fd4d98bab03faadb97b34396831e3780aea1`
+  (The thumbprint is for GitHub’s cert (correct as of 2024–2025)
+
 
 export AWS_DEFAULT_REGION="eu-central-1"
 export CDK_DEFAULT_REGION="eu-central-1"

@@ -40,6 +40,12 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubOIDCDeployRole
           aws-region: eu-central-1
 
+      - name: Debug Working Directory and Files
+        run: |
+            pwd
+            ls -al
+            cat cdk.json
+
       - name: CDK Synth & Deploy
         run: |
           cdk synth
