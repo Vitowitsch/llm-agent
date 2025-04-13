@@ -12,19 +12,6 @@ Configuring AWS for github deployments:
   (The thumbprint is for GitHub’s cert (correct as of 2024–2025)
 
 
-export AWS_DEFAULT_REGION="eu-central-1"
-export CDK_DEFAULT_REGION="eu-central-1"
-export AWS_DEFAULT_PROFILE="944997240237_PA_FULLADMIN"
-export AWS_PROFILE="944997240237_PA_FULLADMIN"
-export CDK_DEFAULT_ACCOUNT="944997240237"
-
-cd lambda/provision
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt -t .
-deactivate
-
 ## Agent comparisons
 
 ![LLM Deployment View](doc/agent_deployment.drawio.png)
