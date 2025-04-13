@@ -25,6 +25,7 @@ ENV/
 # AWS CloudFormation stack backups
 *.template
 *.json
+!cdk.json
 *.yaml
 
 # Python distribution files
@@ -36,3 +37,5 @@ eggs/
 # Lambda or container build artifacts
 Dockerfile*
 *.tgz
+
+
