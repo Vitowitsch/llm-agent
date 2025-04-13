@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+title LangChain-based Architecture with Agent + REST API
+
+actor User
+
+component "API Gateway / Lambda" as Gateway
+component "Agent Logic\n(LangChain / LlamaIndex)" as Agent
+database "Vector DB\n(OpenSearch or Pinecone)" as VDB
+component "LLM\n(HuggingFace or SageMaker)" as LLM
+component "External Data Source\n(REST API)" as RestAPI
+
+User --> Gateway : Sends prompt
+Gateway --> Agent : Forward request
+Agent --> VDB : Retrieve similar docs
+Agent --> RestAPI : Call REST API
+Agent --> LLM : Prompt + context + API results
+Agent --> Gateway : Return response
+
+@enduml

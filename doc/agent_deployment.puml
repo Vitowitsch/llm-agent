@@ -1,0 +1,22 @@
+@startuml
+title Deployment Diagram: OpenSearch Serverless + Lambda + SageMaker / Bedrock
+
+node "VPC" {
+  node "Private Subnet\n(Application)" {
+    component "Lambda Function\n(RAG logic)" as Lambda
+  }
+
+  node "VPC Endpoint" {
+    component "OpenSearch Serverless\n(VPC Access via Endpoint)" as OpenSearch
+  }
+}
+
+cloud "AWS SageMaker Serverless\n(Embedding Model)" as SageMaker
+cloud "Amazon Bedrock\n(Claude / Titan)" as Bedrock
+
+Lambda --> OpenSearch : HTTPS (via VPC endpoint)
+Lambda --> SageMaker : HTTPS (PrivateLink/Vpc If endpoint)
+Lambda --> Bedrock : HTTPS (PrivateLink/Vpc If endpoint)
+
+@enduml
+

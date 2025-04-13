@@ -1,0 +1,22 @@
+@startuml
+' optional: define layout
+left to right direction
+
+title Bedrock-based Architecture with Agent
+
+actor User
+
+component "API Gateway / Lambda" as API_GW
+component "Amazon Bedrock Agent" as Agent
+database "Knowledge Base\n(OpenSearch)" as KB
+component "Action Group\n(Lambda or REST API)" as ActionGroup
+component "LLM\n(Claude / Titan)" as LLM
+
+User --> API_GW : Sends prompt
+API_GW --> Agent : Forward request
+Agent --> KB : Query vector
+Agent --> ActionGroup : Invoke tool/API
+Agent --> LLM : Call LLM
+Agent --> API_GW : Return response
+
+@enduml
