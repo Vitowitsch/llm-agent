@@ -5,7 +5,7 @@ from aws_cdk import (
     aws_s3 as s3,
     aws_secretsmanager as secretsmanager,
     aws_s3_deployment as s3deploy,
-    Stack,
+    Stack, Duration
 )
 from constructs import Construct
 
@@ -53,7 +53,7 @@ class AgentStack(Stack):
             environment={
                 "S3_BUCKET": bucket.bucket_name,
                 "PINECONE_SECRET_NAME": pinecone_secret.secret_name
-            }
+            },
             timeout=Duration.minutes(3)
         )
 
