@@ -54,7 +54,7 @@ class AgentStack(Stack):
                 "S3_BUCKET": bucket.bucket_name,
                 "PINECONE_SECRET_NAME": pinecone_secret.secret_name
             }
-            timeout=Duration.minutes(3),
+            timeout=Duration.minutes(3)
         )
 
         invoke_lambda = _lambda.Function(
