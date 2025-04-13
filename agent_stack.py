@@ -66,8 +66,8 @@ class AgentStack(Stack):
             environment={
                 "BEDROCK_AGENT_ID_PARAM": "/bedrock/agent/id",
                 "BEDROCK_AGENT_ALIAS_ID_PARAM": "/bedrock/agent/alias"
-            }
-            timeout=Duration.minutes(3),
+            },
+            timeout=Duration.minutes(3)
         )
 
         apigw.LambdaRestApi(
