@@ -4,6 +4,10 @@ import os
 import json
 import pinecone
 import time
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 bedrock = boto3.client("bedrock-agent")
 ssm = boto3.client("ssm")
@@ -25,6 +29,7 @@ def handler(event, context):
             "pinecone_index": config["index"]
         })
     except Exception as e:
+        logger.exception("Error in lambda_handler " + str(e))
         return respond(500, {"error": str(e)})
 
 

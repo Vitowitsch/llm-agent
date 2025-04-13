@@ -54,6 +54,7 @@ class AgentStack(Stack):
                 "S3_BUCKET": bucket.bucket_name,
                 "PINECONE_SECRET_NAME": pinecone_secret.secret_name
             }
+            timeout=Duration.minutes(3),
         )
 
         invoke_lambda = _lambda.Function(
@@ -66,6 +67,7 @@ class AgentStack(Stack):
                 "BEDROCK_AGENT_ID_PARAM": "/bedrock/agent/id",
                 "BEDROCK_AGENT_ALIAS_ID_PARAM": "/bedrock/agent/alias"
             }
+            timeout=Duration.minutes(3),
         )
 
         apigw.LambdaRestApi(
