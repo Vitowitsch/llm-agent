@@ -38,19 +38,22 @@ Bedrock Agents can:
 
 
 Scenario: “In which system do I find my vacation balance?”
-    - The Bedrock Agent:
-	    1. Decides it needs real-time data: → calls the REST API via Action Group
-	    2. Combines the result in a fluent response
+  
+The Bedrock Agent:
+
+1. Decides it needs real-time data: → calls the REST API via Action Group
+2. Combines the result in a fluent response
     
 
 Scenario: “How can I change my maternal leave period?”
-    - The Bedrock Agent:
-	    1. Automatically generates the embedding (no Lambda for this)
-	    2. Queries OpenSearch Serverless to find the best answer from the FAQ.
-	    3. Inserts the top documents into the prompt
-	    4. Sends that to Claude or Titan
-	    5. Combines the result in a fluent response
 
+The Bedrock Agent:
+
+1. Automatically generates the embedding (no Lambda for this)
+2. Queries OpenSearch Serverless to find the best answer from the FAQ.
+3. Inserts the top documents into the prompt
+4. Sends that to Claude or Titan
+5. Combines the result in a fluent response
 
 
 So, for bedrock, we need no code to embed, search, or inject context.
