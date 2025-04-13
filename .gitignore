@@ -1,0 +1,38 @@
+# Python Bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+
+# CDK & Node.js dependencies
+cdk.out/
+node_modules/
+
+# AWS CDK local asset directories
+cdk.context.json
+.idea/
+.vscode/
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Logs
+*.log
+
+# AWS CloudFormation stack backups
+*.template
+*.json
+*.yaml
+
+# Python distribution files
+*.egg-info/
+dist/
+build/
+eggs/
+
+# Lambda or container build artifacts
+Dockerfile*
+*.tgz
